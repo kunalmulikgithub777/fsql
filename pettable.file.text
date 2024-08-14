@@ -1,0 +1,23 @@
+create table pet(name varchar(50),pdescription varchar(50),age int(20),price int(50));
+alter table pet add column food varchar(50);
+alter table pet add column breed varchar(50);
+insert into pet(name, age, price, food, breed) values("oscar", 3, 45000, "pedigree", "pitbull");
+insert into pet(name, age, price, food, breed) values("tom", 8, 20000, "pedigree", "lab");
+insert into pet(name, age, price, food, breed) values("roar", 9, 20000, "pedigree", "lab");
+insert into pet(name, age, price, food, breed) values("bolt", 4, 39000, "drools", "pug");
+insert into pet(name, age, price, food, breed) values("jerry", 1, 49000, "drools", "pitbull");
+select * from pet;
+select * from pet where age >= 5;
+select * from pet where breed = 'lab'
+select * from pet where price between 34000 and 50000;
+select * from pet where food = "pedigree";
+alter table pet change pdescription pet_description varchar(50);
+alter table pet modify column pet_description varchar(150);
+update pet set price=20000 where age>7;
+delete from pet where price<10000;
+
+
+
+
+
+
