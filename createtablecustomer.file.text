@@ -1,0 +1,40 @@
+CREATE TABLE customer (
+    customer_id int not null check (customer_id > 0) primary key,
+    customer_name varchar (20) not null,
+    customer_passward int not null
+    check (length(customer_passward) between 6 and 10));
+    
+    desc customer;
+    
+    insert into customer value(1, "alex", 1234456789);
+    insert into customer value(2, "john", 1234456789);
+    insert into customer value(3, "tom", 1234456789);
+    insert into customer value(4, "jack", 1234456789);
+    insert into customer value(5, "thomas", 1234456789);
+    
+    
+    
+    CREATE TABLE product (
+    product_id int not null primary key,
+    product_name varchar(20) not null unique,
+    product_qty int check (product_qty > 0),
+    customer_id int,
+    constraint fk_3 foreign key (customer_id) references customer(customer_id));
+    
+    insert into product value(21, "laptop", 50, 1);
+    insert into product value(22, "mobile", 40,2);
+    insert into product value(23, "smartwatch", 60,3);
+    insert into product value(24, "computer", 40,4);
+    insert into product value(25, "airpods", 90,5);
+
+    primary key error
+0	111	18:16:10	insert into product value(23, "tv", 80,4)	Error Code: 1062. Duplicate entry '23' for key 'product.PRIMARY'	0.000 sec
+
+0	113	18:19:33	insert into product(product_id,product_qty,customer_id) value(24, 80,4)	Error Code: 1364. Field 'product_name' doesn't have a default value	0.000 sec
+    
+    select * from customer;
+    select * from product;
+ 
+    
+    drop table customer;
+    drop table product;
